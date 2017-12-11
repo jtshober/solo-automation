@@ -14,6 +14,7 @@ module.exports = {
        },
        palindrome: {
            input1: 'racecar',
+           input2: 'taco'
        },
        sum: {
            inputLine1: '10',
@@ -24,7 +25,20 @@ module.exports = {
    },
    badData: {
        evenOdd: {
-           input1: 'a,b,c,d,e,f,g,h,i,j'
+           input: 'a,b,c,d,e,f,g,h,i,j'
+       },
+       filterObj: {
+           input: ''
+       },
+       filterStrg: {
+           input: ''
+       },
+       palindrome: {
+           input: ''
+       },
+       sum: {
+           inputLine1: 'a',
+           inputLine2: 'b',
        }
-   },
+   }
 }

@@ -39,11 +39,16 @@ module.exports = {
         .pause(200)
     browser.expect.element(selectors.filterStrg.filtered).text.to.contain("James")
     },
-    'I can put in a valid palindrome and receive a success message': browser => {
+    'I can put in valid palindrome data (true/false) and receive a success message': browser => {
         browser
         .setValue(selectors.palindrome.input, data.goodData.palindrome.input1)
         .click(selectors.palindrome.checkBtn)
-    browser.expect.element(selectors.palindrome.result).text.to.contain('true')
+    browser.expect.element(selectors.palindrome.result).text.to.contain('true'),
+        browser
+        .clearValue(selectors.palindrome.input)
+        .setValue(selectors.palindrome.input, data.goodData.palindrome.input2)
+        .click(selectors.palindrome.checkBtn)        
+    browser.expect.element(selectors.palindrome.result).text.to.contain('false')
     },
     'I can put in 2 numbers and get a sum as a result': browser => {
         browser
@@ -59,4 +64,37 @@ module.exports = {
         .click(selectors.sum.addBtn)
     browser.expect.element(selectors.sum.result).text.to.contain('-9')
     },
+    'I can put invalid data in Even/Odd fields and return a null result': browser => {
+        browser
+        .setValue(selectors.evenOdd.input, data.badData.evenOdd.input)
+        .click(selectors.evenOdd.splitBtn)
+    browser.expect.element(selectors.evenOdd.even).text.to.contain('')
+    browser.expect.element(selectors.evenOdd.odd).text.to.contain('')
+    },
+    'I can input nothing in object fields and still click "Filter", returning a blank result': browser => {
+        browser
+        .setValue(selectors.filterObj.input, data.badData.filterObj.input)
+        .click(selectors.filterObj.filterBtn)
+    browser.expect.element(selectors.filterObj.filtered).text.to.contain('')
+    },
+    'I can input nothing in string fields and still click "Filter", returning a blank result': browser => {
+        browser
+        .setValue(selectors.filterStrg.input, data.badData.filterStrg.input)
+        .click(selectors.filterStrg.filterBtn)
+    browser.expect.element(selectors.filterStrg.filtered).text.to.contain('')
+    },
+    'I can input nothing into the "Palindrome" field and still click "Check", returning a blank result': browser => {
+        browser
+        .setValue(selectors.palindrome.input, data.badData.palindrome.input)
+        .click(selectors.palindrome.checkBtn)
+    browser.expect.element(selectors.palindrome.result).text.to.contain('')
+    },
+    'I can put alphabet data into numeric fields and return a null result': browser => {
+        browser
+        .setValue(selectors.sum.input1, data.badData.sum.inputLine1)
+        .setValue(selectors.sum.input2, data.badData.sum.inputLine2)
+        .click(selectors.sum.addBtn)
+        .pause(200)
+    browser.expect.element(selectors.sum.result).text.to.contain('0')
+    }
 }
