@@ -7,7 +7,19 @@ module.exports = {
            input2: '-1,-2,-3,-4,-5,-6,-7,-8,-9,-10'
        },
        filterObj: {
-           input1: ''
+           input: 'age'
+       },
+       filterStrg: {
+           input: 'J'
+       },
+       palindrome: {
+           input1: 'racecar',
+       },
+       sum: {
+           inputLine1: '10',
+           inputLine2: '12',
+           inputLine1a: '-3',
+           inputLine2a: '-6'
        }
    },
    badData: {
